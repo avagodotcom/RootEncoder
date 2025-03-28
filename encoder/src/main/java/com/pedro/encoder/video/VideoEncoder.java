@@ -43,6 +43,7 @@ import com.pedro.encoder.utils.yuv.YUVUtil;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -354,6 +355,32 @@ public class VideoEncoder extends BaseEncoder implements GetCameraData {
    */
   @Override
   protected MediaCodecInfo chooseEncoder(String mime) {
+
+    //c2.rk.avc.encoder
+    //c2.android.avc.encoder
+    //OMX.google.h264.encoder
+
+//    String forcedEncoderName = "c2.android.avc.encoder"; // Forced to software for testing
+//    for (MediaCodecInfo encoder : CodecUtil.getAllEncoders(mime, false, false)) {
+//      if (encoder.getName().equals(forcedEncoderName)) {
+//        Log.i("MyTAG", "FORCING USE OF ENCODER: " + forcedEncoderName);
+//        return encoder;
+//      }
+//    }
+//    Log.i("MyTAG", "Failed to find forced encoder: " + forcedEncoderName);
+//
+//    List<MediaCodecInfo> allEncoders = CodecUtil.getAllEncoders(mime, false, false);
+//    Log.i("MyTAG", "===== ALL AVAILABLE ENCODERS =====");
+//    for (MediaCodecInfo encoder : allEncoders) {
+//      Log.i("MyTAG", "Encoder name: " + encoder.getName());
+//      MediaCodecInfo.CodecCapabilities caps = encoder.getCapabilitiesForType(mime);
+//      Log.i("MyTAG", " - Color formats: " + Arrays.toString(caps.colorFormats));
+//      //Log.i("MyTAG", " - Is hardware accelerated: " + CodecUtil.isHardwareAccelerated(encoder));
+//      //Log.i(TAG, " - Is VBR supported: " + CodecUtil.isVBRSupported(encoder, mime));
+//      //Log.i(TAG, " - Is CBR supported: " + CodecUtil.isCBRSupported(encoder, mime));
+//    }
+
+
     List<MediaCodecInfo> mediaCodecInfoList;
     if (codecType == CodecUtil.CodecType.HARDWARE) {
       mediaCodecInfoList = CodecUtil.getAllHardwareEncoders(mime, true);
