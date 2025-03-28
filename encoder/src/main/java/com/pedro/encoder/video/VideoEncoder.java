@@ -360,25 +360,25 @@ public class VideoEncoder extends BaseEncoder implements GetCameraData {
     //c2.android.avc.encoder
     //OMX.google.h264.encoder
 
-//    String forcedEncoderName = "c2.android.avc.encoder"; // Forced to software for testing
-//    for (MediaCodecInfo encoder : CodecUtil.getAllEncoders(mime, false, false)) {
-//      if (encoder.getName().equals(forcedEncoderName)) {
-//        Log.i("MyTAG", "FORCING USE OF ENCODER: " + forcedEncoderName);
-//        return encoder;
-//      }
-//    }
-//    Log.i("MyTAG", "Failed to find forced encoder: " + forcedEncoderName);
-//
-//    List<MediaCodecInfo> allEncoders = CodecUtil.getAllEncoders(mime, false, false);
-//    Log.i("MyTAG", "===== ALL AVAILABLE ENCODERS =====");
-//    for (MediaCodecInfo encoder : allEncoders) {
-//      Log.i("MyTAG", "Encoder name: " + encoder.getName());
-//      MediaCodecInfo.CodecCapabilities caps = encoder.getCapabilitiesForType(mime);
-//      Log.i("MyTAG", " - Color formats: " + Arrays.toString(caps.colorFormats));
-//      //Log.i("MyTAG", " - Is hardware accelerated: " + CodecUtil.isHardwareAccelerated(encoder));
-//      //Log.i(TAG, " - Is VBR supported: " + CodecUtil.isVBRSupported(encoder, mime));
-//      //Log.i(TAG, " - Is CBR supported: " + CodecUtil.isCBRSupported(encoder, mime));
-//    }
+    String forcedEncoderName = "c2.android.avc.encoder"; // Forced to software for testing
+    for (MediaCodecInfo encoder : CodecUtil.getAllEncoders(mime, false, false)) {
+      if (encoder.getName().equals(forcedEncoderName)) {
+        Log.i("MyTAG", "FORCING USE OF ENCODER: " + forcedEncoderName);
+        return encoder;
+      }
+    }
+    Log.i("MyTAG", "Failed to find forced encoder: " + forcedEncoderName);
+
+    List<MediaCodecInfo> allEncoders = CodecUtil.getAllEncoders(mime, false, false);
+    Log.i("MyTAG", "===== ALL AVAILABLE ENCODERS =====");
+    for (MediaCodecInfo encoder : allEncoders) {
+      Log.i("MyTAG", "Encoder name: " + encoder.getName());
+      MediaCodecInfo.CodecCapabilities caps = encoder.getCapabilitiesForType(mime);
+      Log.i("MyTAG", " - Color formats: " + Arrays.toString(caps.colorFormats));
+      //Log.i("MyTAG", " - Is hardware accelerated: " + CodecUtil.isHardwareAccelerated(encoder));
+      //Log.i(TAG, " - Is VBR supported: " + CodecUtil.isVBRSupported(encoder, mime));
+      //Log.i(TAG, " - Is CBR supported: " + CodecUtil.isCBRSupported(encoder, mime));
+    }
 
 
     List<MediaCodecInfo> mediaCodecInfoList;
